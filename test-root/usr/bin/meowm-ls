@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
+
+ls $ROOT/var/meowm/db

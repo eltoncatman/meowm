@@ -1,0 +1,5 @@
+#ARCH=$(lscpu | grep 'Architecture' | awk {'print $2'})
+ARCH=x86-64
+
+CFLAGS="-march=${ARCH} -O2 -Wall -Wextra"
+MAKEFLAGS="-j6 -l5"

@@ -1,0 +1,46 @@
+ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
+
+source $ROOT/etc/meowm.d/config 
+
+PACKAGE=''
+VERSION=''
+LICENSE=''
+deps=()
+
+files=()
+
+function about {
+	printf "Package: ${PACKAGE}\n\
+Version: ${VERSION}\n\
+License: ${LICENSE}\n
+Dependencies:\n"
+
+	for i in ${deps[@]}
+	do
+		echo "${i}"
+	done
+}
+
+function recipe {
+	touch $ROOT/var/meowm/db/$PACKAGE
+
+	for i in ${files[@]}
+	do
+		echo "${i}" >> $ROOT/var/meowm/db/$PACKAGE
+	done
+
+	#configure and make
+	printf '\nStarting installation of the package by following recipe:\n\n'
+
+	cd $PACKAGE
+	grep "CFLAGS=" Makefile
+	if [ $? -ne 0 ]
+	then
+		echo "CFLAGS=${CFLAGS}" >> Makefile
+	else
+		sed -i "s/CFLAGS=/CFLAGS=${CFLAGS} /" Makefile
+	fi
+}
+
+about
+recipe

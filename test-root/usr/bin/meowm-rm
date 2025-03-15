@@ -1,0 +1,24 @@
+#!/bin/bash
+
+ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
+
+if [ $# == 0 ]; then
+	echo 'meowm-rem: pass the package name to remove it.'
+	exit 1
+fi
+
+ls $ROOT/var/meowm/db/$1
+
+if [ $? -ne 0 ]; then
+	echo 'Package not found, not installed'
+	exit 1
+else
+	read -p "Proceed with removing? [y/n] " confirm
+
+	if [ $confirm == y ]; then
+		cat $ROOT/var/meowm/db/$1 | xargs rm -rf
+		rm $ROOT/var/meowm/db/$1
+	else
+		exit 0
+	fi
+fi
