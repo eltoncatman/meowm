@@ -3,7 +3,7 @@
 ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
 
 if [ $# == 0 ]; then
-	echo 'meowm-ins: pass the package name to install it.'
+	echo 'meowm-add: pass the package name to install it.'
 	exit 1
 fi
 

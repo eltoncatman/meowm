@@ -3,7 +3,7 @@
 ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
 
 if [ $# == 0 ]; then
-	echo 'meowm-rem: pass the package name to remove it.'
+	echo 'meowm-rm: pass the package name to remove it.'
 	exit 1
 fi
 
