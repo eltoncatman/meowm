@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
+
+if [ $# == 0 ]; then
+	ls $ROOT/var/meowm/pkg | cut -d '.' -f 1
+else
+	ls $ROOT/var/meowm/pkg | cut -d '.' -f 1 | grep $1
+fi

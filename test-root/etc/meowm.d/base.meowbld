@@ -30,7 +30,7 @@ function recipe {
 	done
 
 	#configure and make
-	printf '\nStarting installation of the package by following recipe:\n\n'
+	printf '\nStarting installation of the package by following the recipe:\n\n'
 
 	cd $PACKAGE
 	grep "CFLAGS=" Makefile

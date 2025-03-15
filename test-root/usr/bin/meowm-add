@@ -20,13 +20,10 @@ else
 	if [ $confirm == y ]; then
 		cp $ROOT/var/meowm/pkg/$package_name $ROOT/tmp/
 		cd $ROOT/tmp
-		pwd
-		tar xfv $package_name
+		tar xf $package_name
 		cd $1
-		pwd
 		source .MEOWBLD
 		cd $ROOT/tmp
-		pwd
 		rm -rf $package_name $1
 	else
 		exit 0
