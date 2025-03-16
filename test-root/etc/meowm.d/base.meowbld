@@ -11,7 +11,7 @@ deps=()
 files=()
 
 function about {
-	printf "Package: ${PACKAGE}\n\
+	printf "Package: ${PACKAGE}\n
 Version: ${VERSION}
 License: ${LICENSE}
 ${DESCRIPTION}\n
