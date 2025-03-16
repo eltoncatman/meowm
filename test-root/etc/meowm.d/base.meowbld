@@ -5,20 +5,24 @@ source $ROOT/etc/meowm.d/config
 PACKAGE=''
 VERSION=''
 LICENSE=''
+DESCRIPTION=''
 deps=()
 
 files=()
 
 function about {
 	printf "Package: ${PACKAGE}\n\
-Version: ${VERSION}\n\
-License: ${LICENSE}\n
+Version: ${VERSION}
+License: ${LICENSE}
+${DESCRIPTION}\n
 Dependencies:\n"
 
 	for i in ${deps[@]}
 	do
 		echo "${i}"
 	done
+
+	printf '\n'
 }
 
 function recipe {
@@ -29,7 +33,6 @@ function recipe {
 		echo "${i}" >> $ROOT/var/meowm/db/$PACKAGE
 	done
 
-	#configure and make
 	printf '\nStarting installation of the package by following the recipe:\n\n'
 
 	cd $PACKAGE
@@ -40,7 +43,7 @@ function recipe {
 	else
 		sed -i "s/CFLAGS=/CFLAGS=${CFLAGS} /" Makefile
 	fi
-}
 
-about
-recipe
+	#configure and make
+	make $MAKEFLAGS
+}

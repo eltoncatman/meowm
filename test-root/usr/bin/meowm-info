@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ROOT=/home/eltonzip/Programming/Bash/Meowm/test-root
+
+if [ $# == 0 ]; then
+	echo 'meowm-info: pass one of the options: flags, [others not implemeted]'
+	exit 1
+fi
+
+case "$1" in
+	"flags" )
+		source $ROOT/etc/meowm.d/config
+		printf "CFLAGS: ${CFLAGS}\nCXXFLAGS: ${CXXFLAGS}\nMAKEFLAGS: ${MAKEFLAGS}\n"
+	;;
+esac

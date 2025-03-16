@@ -15,10 +15,8 @@ if [ $? -ne 0 ]; then
 else
 	read -p "Proceed with removing? [y/n] " confirm
 
-	if [ $confirm == y ]; then
+	if [ $confirm == 'y' ]; then
 		cat $ROOT/var/meowm/db/$1 | xargs rm -rf
 		rm $ROOT/var/meowm/db/$1
-	else
-		exit 0
 	fi
 fi
