@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
 	echo 'Package not found locally, remote download not implemented yet'
 	exit 1
 else
-	echo 'Package found locally'
+	printf 'Package found locally\n\n'
 
 	cp $ROOT/var/meowm/pkg/$package_name $ROOT/tmp/
 	cd $ROOT/tmp
