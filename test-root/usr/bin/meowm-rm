@@ -7,7 +7,7 @@ if [ $# == 0 ]; then
 	exit 1
 fi
 
-ls $ROOT/var/meowm/db/$1
+ls $ROOT/var/lib/meowm/pkg/$1
 
 if [ $? -ne 0 ]; then
 	echo 'Package not found, not installed'
@@ -16,7 +16,7 @@ else
 	read -p "Proceed with removing? [y/n] " confirm
 
 	if [ $confirm == 'y' ]; then
-		cat $ROOT/var/meowm/db/$1 | xargs rm -rf
-		rm $ROOT/var/meowm/db/$1
+		cat $ROOT/var/lib/meowm/pkg/$1 | xargs rm -rf
+		rm $ROOT/var/lib/meowm/pkg/$1
 	fi
 fi

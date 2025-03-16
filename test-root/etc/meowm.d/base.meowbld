@@ -26,11 +26,11 @@ Dependencies:\n"
 }
 
 function recipe {
-	touch $ROOT/var/meowm/db/$PACKAGE
+	touch $ROOT/var/lib/meowm/pkg/$PACKAGE
 
 	for i in ${files[@]}
 	do
-		echo "${i}" >> $ROOT/var/meowm/db/$PACKAGE
+		echo "${i}" >> $ROOT/var/lib/meowm/pkg/$PACKAGE
 	done
 
 	printf '\nStarting installation of the package by following the recipe:\n\n'

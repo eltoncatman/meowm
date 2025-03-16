@@ -9,7 +9,7 @@ fi
 
 package_name=$1.tar.gz
 
-ls $ROOT/var/meowm/pkg/$package_name
+ls $ROOT/var/cache/meowm/pkg/$package_name
 
 if [ $? -ne 0 ]; then
 	echo 'Package not found locally, remote download not implemented yet'
@@ -17,8 +17,9 @@ if [ $? -ne 0 ]; then
 else
 	printf 'Package found locally\n\n'
 
-	cp $ROOT/var/meowm/pkg/$package_name $ROOT/tmp/
-	cd $ROOT/tmp
+	mkdir $ROOT/tmp/meowm
+	cp $ROOT/var/cache/meowm/pkg/$package_name $ROOT/tmp/meowm/
+	cd $ROOT/tmp/meowm
 	tar xf $package_name
 	cd $1
 	source .MEOWBLD
@@ -28,5 +29,5 @@ else
 		recipe
 	fi
 	cd $ROOT/tmp
-	rm -rf $package_name $1
+	rm -rf meowm/
 fi
